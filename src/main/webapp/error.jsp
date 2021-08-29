@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
+    pageEncoding="ISO-8859-1" isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,14 @@
 </head>
 <body>
 
-<header>
-<h1> <a href="index.jsp">Learner's Academy</a></h1>
-</header>
+
+
+<div class="error">
+<h1 style="color: red"> Some Error has occurred, please try troubleshooting or contact the developer</h1>
+</div>
+
+
+
 
 </body>
 </html>

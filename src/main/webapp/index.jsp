@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,41 +8,56 @@
 </head>
 <body>
 
-   <%@include  %>
+	<%@include file="Header.jsp"%>
+
+	<div class="main" >
+		<div class="card class-list">
+			<form action="java-full-stack">
+				<p style="font-weight: bold;" >Class 1</p>
+				<h2>Java Full Stack</h2>
+				<button class="primary" type="submit">Details</button>
+			</form>
+		</div>
 
 
-<div>
-<form action="java-full-stack">
-   <p>Class 1</p>
-  <h2>Java Full Stack</h2>
-  <button type="submit">Details</button>
-</form>
-</div>
+		<div class="card class-list">
+			<form action="javaScript-full-stack">
+				<p style="font-weight: bold;" >Class 2</p>
+				<h2>JavaScript Full Stack</h2>
+				<button class="primary"  type="submit">Details</button>
+			</form>
+		</div>
 
+		<div class="card class-list">
+			<form action="pyton-full-stack">
+				<p style="font-weight: bold;">Class 3</p>
+				<h2>Python Full Stack</h2>
+				<button class="primary"  type="submit">Details</button>
+			</form>
+		</div>
 
-<div>
-<form action="javaScript-full-stack">
-   <p>Class 2</p>
-  <h2>JavaScript Full Stack</h2>
-  <button type="submit">Details</button>
-</form>
-</div>
+		<div class="card class-list">
+			<form action="students">
+				<h2>Students master list</h2>
+				<button class="primary"  type="submit">Details</button>
+			</form>
+		</div>
+		
+		<div class="card class-list">
+			<form action="teachers">
+				<h2>Teacher master list</h2>
+				<button class="primary"  type="submit">Details</button>
+			</form>
+		</div>
+		
+		<div class="card class-list">
+			<form action="subjects">
+				<h2>Subjects master list</h2>
+				<button class="primary"  type="submit">Details</button>
+			</form>
+		</div>
+	</div>
 
-<div>
-<form action="python-full-stack">
-   <p>Class 3</p>
-  <h2>Python Full Stack</h2>
-  <button type="submit">Details</button>
-</form>
-</div>
-
-<div>
-<form action="students">
-   
-  <h2>Students master list</h2>
-  <button type="submit">Details</button>
-</form>
-</div>
-
+	<%@include file="footer.jsp"%>
 </body>
 </html>

@@ -7,37 +7,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Class details</title>
 
 <style>
-h1{
- text-align: center;
-}
-table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-}
 
-td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-}
-
-tr:nth-child(even) {
-	background-color: #dddddd;
-}
 </style>
 </head>
-<body>
 
-		<% List<Student> students = (List) request.getAttribute("stdList");%>
-         <h1><%= students.get(0).getCourse().getClassName() %></h1>
+
+<body>
+	<%@include file="Header.jsp"%>
+
+	<%
+	List<Student> students = (List) request.getAttribute("stdList");
+	%>
+	<h1  style="margin-bottom: 15px"><%=students.get(0).getCourse().getClassName()%></h1>
 
 	<h2>Students Details</h2>
 
-	<table>
+	<table class="table">
 		<tr>
 			<th>Roll-NO.</th>
 			<th>First-Name</th>
@@ -49,9 +37,9 @@ tr:nth-child(even) {
 		%>
 
 		<tr>
-			<td><%= std.getRollNo() %></td>
-			<td><%= std.getfName() %></td>
-			<td><%= std.getlName() %></td>
+			<td><%=std.getRollNo()%></td>
+			<td><%=std.getfName()%></td>
+			<td><%=std.getlName()%></td>
 		</tr>
 
 		<%
@@ -61,9 +49,9 @@ tr:nth-child(even) {
 	</table>
 
 
-<h2>Subject  Details</h2>
+	<h2>Subject Details</h2>
 
-	<table>
+	<table class="table">
 		<tr>
 			<th>Subject_Id</th>
 			<th>Subject</th>
@@ -71,14 +59,15 @@ tr:nth-child(even) {
 		</tr>
 
 		<%
-	List<Subject> subjects = (List) request.getAttribute("subList");
-	for (Subject sub : subjects) {
-	%>
+		List<Subject> subjects = (List) request.getAttribute("subList");
+		for (Subject sub : subjects) {
+		%>
 		<tr>
-		    <td><%=sub.getSubjectId()%></td>
+			<td><%=sub.getSubjectId()%></td>
 			<td><%=sub.getSubjectName()%></td>
-			
-			<td><%= sub.getTeacher().getfName()%> <%= sub.getTeacher().getlName()%> </td>
+
+			<td><%=sub.getTeacher().getfName()%> <%=sub.getTeacher().getlName()%>
+			</td>
 		</tr>
 
 		<%
@@ -86,16 +75,10 @@ tr:nth-child(even) {
 		%>
 
 	</table>
-	
-
-	
-		
-
-	
 
 
 
-
+	<%@include file="footer.jsp"%>
 
 
 
