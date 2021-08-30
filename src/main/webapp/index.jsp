@@ -29,7 +29,7 @@
 		</div>
 
 		<div class="card class-list">
-			<form action="pyton-full-stack">
+			<form action="python-full-stack">
 				<p style="font-weight: bold;">Class 3</p>
 				<h2>Python Full Stack</h2>
 				<button class="primary"  type="submit">Details</button>
