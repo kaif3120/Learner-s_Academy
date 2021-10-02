@@ -37,6 +37,8 @@ public class TeacherController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
 		// TODO Auto-generated method stub
 		SessionFactory sf = HibernateUtil.buildSessionFactory();
 		Session sessionHb = null;
@@ -48,7 +50,7 @@ public class TeacherController extends HttpServlet {
 		 Query q2 = sessionHb.createQuery("from Teacher ");
 		 List <Teacher> tchList = (List<Teacher>) q2.list();
 		 
-		 request.setAttribute("tchList", tchList);
+		 request.setAttribute("teachersList", tchList);
 		 
 		 sessionHb.getTransaction().commit();
 		}catch(Exception e){

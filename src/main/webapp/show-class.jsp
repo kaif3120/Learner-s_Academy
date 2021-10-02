@@ -17,14 +17,23 @@
 
 <body>
 	<%@include file="Header.jsp"%>
+	<%@include file="loginverifier.jsp" %>
 
 	<%
-	List<Student> students = (List) request.getAttribute("stdList");
+	String className = (String)request.getAttribute("className");
+	List<Student> students = (List) request.getAttribute("std1List");
+	List<Subject> subjects = (List) request.getAttribute("sub1List");
+	System.out.println(students.size() + " " + subjects.size());
 	%>
-	<h1  style="margin-bottom: 15px"><%=students.get(0).getCourse().getClassName()%></h1>
+	
+	<h1  style="margin-bottom: 15px"><%=className%></h1>
 
 	<h2>Students Details</h2>
 
+      <% if(students.size() == 0){%>	
+			<h3 style="margin:50px auto; text-align: center;"> No students record to show </h3>
+	     <%}else{ %>		
+			
 	<table class="table">
 		<tr>
 			<th>Roll-NO.</th>
@@ -32,7 +41,8 @@
 			<th>Last-Name</th>
 		</tr>
 
-		<%
+		
+		<% 
 		for (Student std : students) {
 		%>
 
@@ -42,14 +52,17 @@
 			<td><%=std.getlName()%></td>
 		</tr>
 
-		<%
-		}
-		%>
+		<%}%>
+    </table>
+     <%} %>
 
-	</table>
+     <h2>Subject Details</h2>
 
+  <% if(subjects.size() == 0){%>	
+			<h3 style="margin:50px auto; text-align: center"> No subjects record to show </h3>
+	     <%}else{ %>	
 
-	<h2>Subject Details</h2>
+	
 
 	<table class="table">
 		<tr>
@@ -59,7 +72,7 @@
 		</tr>
 
 		<%
-		List<Subject> subjects = (List) request.getAttribute("subList");
+		
 		for (Subject sub : subjects) {
 		%>
 		<tr>
@@ -73,14 +86,11 @@
 		<%
 		}
 		%>
-
-	</table>
-
+    </table>
+ <%} %>
 
 
 	<%@include file="footer.jsp"%>
-
-
 
 </body>
 </html>

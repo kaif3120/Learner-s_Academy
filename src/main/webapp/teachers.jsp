@@ -11,7 +11,7 @@
 <body>
 
 	<%@include file="Header.jsp"%>
-
+    <%@include file="loginverifier.jsp" %>
 
 	<h2 >Teachers Master List</h2>
 
@@ -24,7 +24,7 @@
 		</tr>
 
 		<%
-		List<Teacher> teachers = (List) request.getAttribute("tchList");
+		List<Teacher> teachers = (List) request.getAttribute("teachersList");
 		for (Teacher tch : teachers) {
 		%>
 

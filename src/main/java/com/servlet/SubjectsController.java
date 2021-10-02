@@ -37,30 +37,28 @@ public class SubjectsController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+		SessionFactory sf = HibernateUtil.buildSessionFactory();
+		Session sessionHb = null;
 		
+		try {
+		 sessionHb = sf.openSession();
+		 sessionHb.beginTransaction();
+		 
+		 Query q2 = sessionHb.createQuery("from Subject ");
+		 List <Subject> subList = (List<Subject>) q2.list();
+		 
+		 request.setAttribute("subjectsList", subList);
+		 
+		 sessionHb.getTransaction().commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (sessionHb != null) {
+				sessionHb.close();
+			}
+		}   
 		
-		// TODO Auto-generated method stub
-				SessionFactory sf = HibernateUtil.buildSessionFactory();
-				Session sessionHb = null;
-				
-				try {
-				 sessionHb = sf.openSession();
-				 sessionHb.beginTransaction();
-				 
-				 Query q2 = sessionHb.createQuery("from Subject ");
-				 List <Subject> subList = (List<Subject>) q2.list();
-				 
-				 request.setAttribute("subList", subList);
-				 
-				 sessionHb.getTransaction().commit();
-				}catch(Exception e){
-					e.printStackTrace();
-				}finally {
-					if (sessionHb != null) {
-						sessionHb.close();
-					}
-				}
-		        
 				RequestDispatcher rd = request.getRequestDispatcher("subjects.jsp");
 				rd.forward(request, response);
 	}

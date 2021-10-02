@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" %>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,54 +10,40 @@
 
 	<%@include file="Header.jsp"%>
 
-	<div class="main" >
-		<div class="card class-list">
-			<form action="java-full-stack">
-				<p style="font-weight: bold;" >Class 1</p>
-				<h2>Java Full Stack</h2>
-				<button class="primary" type="submit">Details</button>
-			</form>
-		</div>
 
 
-		<div class="card class-list">
-			<form action="javaScript-full-stack">
-				<p style="font-weight: bold;" >Class 2</p>
-				<h2>JavaScript Full Stack</h2>
-				<button class="primary"  type="submit">Details</button>
-			</form>
-		</div>
 
-		<div class="card class-list">
-			<form action="python-full-stack">
-				<p style="font-weight: bold;">Class 3</p>
-				<h2>Python Full Stack</h2>
-				<button class="primary"  type="submit">Details</button>
-			</form>
-		</div>
 
-		<div class="card class-list">
-			<form action="students">
-				<h2>Students master list</h2>
-				<button class="primary"  type="submit">Details</button>
+	<div class="form-page">
+		<main class="form-signin">
+
+			<form action="login" method="post">
+			<p style="color: red">${loginMessage}	</p>
+				<h1>Welcome!</h1>
+				<p class="form">sign in as admin</p>
+
+				<div class="form-floating form">
+					<label style="margin-left: 55px" for="floatingInput">Email address</label> <input type="email" 
+						id="floatingInput" name="email" placeholder="name@example.com">
+
+				</div>
+
+				<div class="form-floating form bottom">
+					<label style="margin-left: 55px"  for="password">Password</label> <input
+						type="password" class=" middle" name="password"
+						id="password" placeholder="password">
+				</div>
+
+
+				<p style="color: red">${errorMessage}	</p>
+
+					<button class="primary form" type="submit">Login</button>
 			</form>
-		</div>
-		
-		<div class="card class-list">
-			<form action="teachers">
-				<h2>Teacher master list</h2>
-				<button class="primary"  type="submit">Details</button>
-			</form>
-		</div>
-		
-		<div class="card class-list">
-			<form action="subjects">
-				<h2>Subjects master list</h2>
-				<button class="primary"  type="submit">Details</button>
-			</form>
-		</div>
+		</main>
+
 	</div>
-
 	<%@include file="footer.jsp"%>
+
+	
 </body>
 </html>

@@ -9,26 +9,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.entity.Student;
-import com.entity.Subject;
+import com.entity.Classes;
+
 import com.util.HibernateUtil;
 
 /**
- * Servlet implementation class JavaController
+ * Servlet implementation class CLassController
  */
-@WebServlet("/java-full-stack")
-public class JavaController extends HttpServlet {
+@WebServlet("/classes")
+public class CLassController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JavaController() {
+    public CLassController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,23 +39,17 @@ public class JavaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
 		SessionFactory sf = HibernateUtil.buildSessionFactory();
 		Session sessionHb = null;
 		
 		try {
 		 sessionHb = sf.openSession();
 		 sessionHb.beginTransaction();
-		   
-		 Query q1 = sessionHb.createQuery("from Subject where class_id = 10001");
-		 List <Subject> subList = (List <Subject>) q1.list();
 		 
-		 Query q2 = sessionHb.createQuery("from Student where class_id = 10001");
-		 List <Student> stdList = (List<Student>) q2.list();
+		 Query q2 = sessionHb.createQuery("from Classes ");
+		 List <Classes> classesList = (List<Classes>) q2.list();
 		 
-		 
-		 request.setAttribute("subList", subList);
-		 request.setAttribute("stdList", stdList);
+		 request.setAttribute("classesList", classesList);
 		 
 		 sessionHb.getTransaction().commit();
 		}catch(Exception e){
@@ -64,8 +59,8 @@ public class JavaController extends HttpServlet {
 				sessionHb.close();
 			}
 		}
-        
-		RequestDispatcher rd = request.getRequestDispatcher("show-class.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("classes.jsp");
 		rd.forward(request, response);
 	}
 

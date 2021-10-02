@@ -11,6 +11,7 @@
 <body>
 
     <%@include file="Header.jsp"%>
+    <%@include file="loginverifier.jsp" %>
     
 	<h2>Subject Master List</h2>
 
@@ -23,7 +24,7 @@
 		</tr>
 
 		<%
-		List<Subject> subjects = (List) request.getAttribute("subList");
+		List<Subject> subjects = (List) request.getAttribute("subjectsList");
 		for (Subject sub : subjects) {
 		%>
 		<tr>

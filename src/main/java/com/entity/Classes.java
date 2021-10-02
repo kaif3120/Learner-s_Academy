@@ -1,10 +1,7 @@
 package com.entity;
 
 import java.util.ArrayList;
-
-
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,10 +23,10 @@ public class Classes {
 	@Column(name = "class_name")
 	private String className;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
+	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "course")
 	private List<Student> students = new ArrayList<>();
     
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
+	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "course")
 	private List<Subject> subjects = new ArrayList<>();
     
     

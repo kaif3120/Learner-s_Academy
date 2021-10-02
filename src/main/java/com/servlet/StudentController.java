@@ -38,6 +38,8 @@ public class StudentController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
 		SessionFactory sf = HibernateUtil.buildSessionFactory();
 		Session sessionHb = null;
 		
@@ -48,7 +50,7 @@ public class StudentController extends HttpServlet {
 		 Query q2 = sessionHb.createQuery("from Student ");
 		 List <Student> stdList = (List<Student>) q2.list();
 		 
-		 request.setAttribute("stdList", stdList);
+		 request.setAttribute("studentsList", stdList);
 		 
 		 sessionHb.getTransaction().commit();
 		}catch(Exception e){
@@ -58,7 +60,8 @@ public class StudentController extends HttpServlet {
 				sessionHb.close();
 			}
 		}
-        
+		
+
 		RequestDispatcher rd = request.getRequestDispatcher("students.jsp");
 		rd.forward(request, response);
 				
